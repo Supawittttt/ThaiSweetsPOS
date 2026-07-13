@@ -1,26 +1,8 @@
-import styled from 'styled-components';
 import { Icon } from '../../../components/Icon';
-import { PrimaryButton, SurfaceCard } from '../../../components/styled';
 import { ScreenSwitcher } from '../../../components/ScreenSwitcher';
 import { calculateSubtotal, calculateTax, usePosStore } from '../../../store/usePosStore';
-
-const SummaryCard = styled(SurfaceCard)`
-  padding: 24px;
-
-  @media (max-width: 860px) {
-    padding: 18px;
-  }
-`;
-
-const ConfirmPaymentButton = styled(PrimaryButton)`
-  width: 100%;
-  min-height: 60px;
-  justify-content: space-between;
-  margin-top: 16px;
-  padding: 0 20px;
-  border-radius: 14px;
-  font-size: 18px;
-`;
+import { ConfirmPaymentButton } from '../components/ConfirmPaymentButton';
+import { SummaryCard } from '../components/SummaryCard';
 
 export function OrderSummaryScreen() {
   const order = usePosStore((state) => state.order);
@@ -74,7 +56,7 @@ export function OrderSummaryScreen() {
               <p><span>Tax (7%)</span><strong>฿{tax.toFixed(2)}</strong></p>
               <p className="grand"><span>Total</span><strong>฿{total.toFixed(2)}</strong></p>
             </div>
-            <ConfirmPaymentButton onClick={checkout}>Confirm Payment <Icon>check_circle</Icon></ConfirmPaymentButton>
+            <ConfirmPaymentButton onConfirm={checkout} />
           </SummaryCard>
         </div>
       </section>
