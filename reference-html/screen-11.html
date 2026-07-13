@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Siam Sweets POS - Storefront</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "secondary": "#7d5700",
+                "inverse-surface": "#2e3132",
+                "primary": "#446902",
+                "outline-variant": "#c4c9b5",
+                "outline": "#747968",
+                "surface-dim": "#d9dadb",
+                "surface-container-lowest": "#ffffff",
+                "tertiary": "#3b5ca2",
+                "surface-container-low": "#f3f4f5",
+                "primary-fixed": "#c3f181",
+                "on-secondary": "#ffffff",
+                "background": "#f8f9fa",
+                "surface-tint": "#446902",
+                "on-background": "#191c1d",
+                "tertiary-container": "#82a2ed",
+                "inverse-primary": "#a8d469",
+                "surface-container-high": "#e7e8e9",
+                "on-surface": "#191c1d",
+                "on-error": "#ffffff",
+                "on-primary": "#ffffff",
+                "on-tertiary": "#ffffff",
+                "primary-fixed-dim": "#a8d469",
+                "error": "#ba1a1a",
+                "on-primary-container": "#284000",
+                "inverse-on-surface": "#f0f1f2",
+                "on-primary-fixed": "#111f00",
+                "on-tertiary-fixed-variant": "#1f4488",
+                "surface": "#f8f9fa",
+                "secondary-fixed": "#ffdeaa",
+                "on-error-container": "#93000a",
+                "surface-variant": "#e1e3e4",
+                "on-surface-variant": "#43493a",
+                "primary-container": "#86b049",
+                "surface-container-highest": "#e1e3e4",
+                "on-tertiary-fixed": "#001944",
+                "on-secondary-container": "#6b4b00",
+                "on-secondary-fixed-variant": "#5f4100",
+                "secondary-fixed-dim": "#ffba2c",
+                "tertiary-fixed-dim": "#afc6ff",
+                "surface-container": "#edeeef",
+                "surface-bright": "#f8f9fa",
+                "on-secondary-fixed": "#271900",
+                "error-container": "#ffdad6",
+                "on-tertiary-container": "#0b367a",
+                "tertiary-fixed": "#d9e2ff",
+                "on-primary-fixed-variant": "#324f00",
+                "secondary-container": "#feb71a"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "gutter": "16px",
+                "sm": "12px",
+                "lg": "40px",
+                "xl": "64px",
+                "base": "8px",
+                "md": "24px",
+                "xs": "4px",
+                "container-margin": "24px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "display-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-sm": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-lg-mobile": [
+                        "Plus Jakarta Sans"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-lg": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "40px",
+                        {
+                                "lineHeight": "48px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body-md h-screen flex flex-col overflow-hidden">
+<nav class="bg-surface dark:bg-inverse-surface shadow-sm shadow-primary/5 flex justify-between items-center w-full px-container-margin py-base max-w-full docked full-width top-0 z-50">
+<div class="flex items-center gap-xl">
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">Siam Sweets POS</h1>
+<ul class="hidden md:flex items-center gap-container-margin">
+<li><a class="text-primary dark:text-inverse-primary border-b-2 border-primary font-bold pb-1 opacity-80 transition-all duration-200 block text-body-md font-body-md" href="#">Storefront</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-primary-container dark:hover:text-primary-fixed transition-colors block text-body-md font-body-md" href="#">Orders</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-primary-container dark:hover:text-primary-fixed transition-colors block text-body-md font-body-md" href="#">Inventory</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-primary-container dark:hover:text-primary-fixed transition-colors block text-body-md font-body-md" href="#">Members</a></li>
+</ul>
+</div>
+<div class="flex items-center gap-gutter">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant" style="font-size: 20px;">search</span>
+<input class="bg-surface-container-low text-on-surface font-body-md border-0 rounded-full py-2 pl-xl pr-sm focus:ring-1 focus:ring-primary w-64 transition-shadow" placeholder="Search menu..." type="text"/>
+</div>
+<button class="bg-surface-variant text-on-surface-variant hover:bg-surface-container-high rounded-full w-12 h-12 flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="bg-surface-variant text-on-surface-variant hover:bg-surface-container-high rounded-full w-12 h-12 flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-10 w-[1px] bg-outline-variant mx-sm"></div>
+<button class="bg-primary text-on-primary px-container-margin py-2 rounded-full font-label-lg text-label-lg hover:shadow-[0_4px_12px_rgba(68,105,2,0.2)] transition-shadow flex items-center gap-base h-12">
+<span class="material-symbols-outlined" style="font-size: 20px;">point_of_sale</span>
+            Register Sale
+        </button>
+<img alt="Staff Avatar" class="w-12 h-12 rounded-full object-cover border-2 border-surface-container-lowest shadow-sm ml-sm" data-alt="A brightly lit, professional portrait of an elegant staff member smiling slightly. Set against a pure white minimalist background. The lighting is soft, even, and high-key, aligning perfectly with a modern, airy Thai boutique aesthetic. The focus is sharp, highlighting a clean and welcoming sanctuary vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDENjv7IOraUPUZ1BXhk7t7VNfWncoWmBNBnNAK0nzI4yUDn_ME2BIyv9DHIaC2xxNhO0DwqOyXZD9B63LnqVsHR80irkd6E7y58ZGwaSzQSU9kzxrXJypi-wYLy38oW-bNQNpL0Axg3lYrsZWrR9rq08u9wegmoX7d5N899iDrsOAveqTwFaLZ4xFgrzzMqX2BW_jQEoVeBglK9JChVSojRmPfAC2RJgFmInbpW-zJzONXv-R2sGgS"/>
+</div>
+</nav>
+<main class="flex-1 flex overflow-hidden">
+<section class="flex-1 flex flex-col overflow-y-auto px-container-margin pt-md pb-xl">
+<div class="flex items-center justify-between mb-md">
+<h2 class="text-headline-lg font-headline-lg text-on-surface hidden">Menu Categories</h2>
+<div class="flex gap-sm overflow-x-auto hide-scrollbar w-full">
+<button class="bg-primary text-on-primary px-lg py-sm rounded-full font-label-lg text-label-lg whitespace-nowrap shadow-sm shadow-primary/10 h-12 flex items-center justify-center">All Items</button>
+<button class="bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high px-lg py-sm rounded-full font-label-lg text-label-lg whitespace-nowrap transition-colors h-12 flex items-center justify-center">Traditional</button>
+<button class="bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high px-lg py-sm rounded-full font-label-lg text-label-lg whitespace-nowrap transition-colors h-12 flex items-center justify-center">Modern</button>
+<button class="bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high px-lg py-sm rounded-full font-label-lg text-label-lg whitespace-nowrap transition-colors h-12 flex items-center justify-center">Signature Drinks</button>
+<button class="bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high px-lg py-sm rounded-full font-label-lg text-label-lg whitespace-nowrap transition-colors h-12 flex items-center justify-center">Gift Sets</button>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-gutter pb-xl">
+<div class="bg-surface-container-lowest rounded-lg shadow-sm shadow-primary/5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 overflow-hidden flex flex-col group cursor-pointer border border-outline-variant/20">
+<div class="h-40 bg-surface-container-low relative overflow-hidden">
+<img alt="Thong Yip" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close-up, high-key photograph of a delicate Thong Yip (pinched gold) Thai dessert, shaped like a flower. Resting on a pristine white ceramic plate. The lighting is soft and airy, typical of a modern minimal light-mode aesthetic. The background is a clean, slightly blurred bright space, emphasizing the golden, syrupy texture of the dessert." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFZzrzfjUFuW8bYwH1MBxfRJfoQyEOMx_Sf7vfyMFVj0_YOpnbxc4_NkAU1RMfMHeGz4onL_w6EkFcZFVy87HhlrlorUjNgv9OBOXOCGrRK2mAD0AVT2ttwV5O4Xov9nNFZI7Y0TY1ArKjrd5Wx_VFKssbcOGtMHCUPsSsAcX_KTOZc_bXnHMf7J9MrJYEaw0dd5yG_5PgICNnF61_EQzR-UxThk_dpSI11JlCN_QbfRrmDVNtnC0J"/>
+</div>
+<div class="p-sm flex flex-col flex-1">
+<h3 class="text-headline-md font-headline-md text-on-surface leading-tight mb-xs line-clamp-1">Thong Yip</h3>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-1 mb-auto">Pinched Gold Egg Yolks</p>
+<div class="flex items-end justify-between mt-sm">
+<span class="text-label-lg font-label-lg text-primary">฿ 45.00</span>
+<button class="bg-surface-container-low text-primary group-hover:bg-primary group-hover:text-on-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg shadow-sm shadow-primary/5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 overflow-hidden flex flex-col group cursor-pointer border border-outline-variant/20">
+<div class="h-40 bg-surface-container-low relative overflow-hidden">
+<img alt="Mango Sticky Rice" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A beautifully plated serving of mango sticky rice in a modern minimalist setting. Slices of perfectly ripe yellow mango rest next to a neat mound of white sticky rice drizzled with coconut cream. Shot against a pure white background with soft, diffused shadows to create an airy, premium culinary aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK6S-Hxtz-BpzvnSoqy1l5ZASpH80OIlAelDMOCpsitrjaxf5LaLLDzyFavRZv24tOyzzdVmMPNJ_ExJdm_TgvfqJhT251azMx_v0TiqKvCteOl5gGRdE8VokknUAjri8LHAVC0Nu8NkIWBc2nZ4PcTvdtn_fX0qydoVbStQFgyVGy-kuBUgvnTg6ScEbESSYJhjitvnvO-zzYkukx2qk0ucqlrW1r7XTXSbYbEdyuxXxKfxKvbo_p"/>
+</div>
+<div class="p-sm flex flex-col flex-1">
+<h3 class="text-headline-md font-headline-md text-on-surface leading-tight mb-xs line-clamp-1">Khao Niao Mamuang</h3>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-1 mb-auto">Mango Sticky Rice</p>
+<div class="flex items-end justify-between mt-sm">
+<span class="text-label-lg font-label-lg text-primary">฿ 120.00</span>
+<button class="bg-surface-container-low text-primary group-hover:bg-primary group-hover:text-on-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg shadow-sm shadow-primary/5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 overflow-hidden flex flex-col group cursor-pointer border border-outline-variant/20">
+<div class="h-40 bg-surface-container-low relative overflow-hidden">
+<img alt="Luk Chup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A bright, macro shot of vibrant Luk Chup (mung bean paste shaped like miniature fruits) glossy and colorful. Sitting on a subtle greyish-white surface. Soft studio lighting creates gentle highlights on the glossy agar coating. The mood is fresh, organic, and professional, aligning with a boutique Thai contemporary minimal style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4JqyVpyhVBguFSLlKWtbczdT2OIPRlHPf66e_DGjjxwsNWYYDbS40t9IAwOdkVaCEv8F1MQaWvGejiyqMNfK_-tCKT3Kt92MbS15McmaI0iGuhTw0YAax5N_vINAiix3yjkz6J6AGU9r0s1m9EtmrD55fARfiYGHW8aJtxvT3omvuhlStfJJafa9Zp9AuB2eYnvBtabwc-IEs5j3aCpk3COljAyMPINLptR4WkgMiPZRxcm7CGYpD"/>
+</div>
+<div class="p-sm flex flex-col flex-1">
+<h3 class="text-headline-md font-headline-md text-on-surface leading-tight mb-xs line-clamp-1">Luk Chup</h3>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-1 mb-auto">Miniature Fruit Pastes</p>
+<div class="flex items-end justify-between mt-sm">
+<span class="text-label-lg font-label-lg text-primary">฿ 85.00</span>
+<button class="bg-surface-container-low text-primary group-hover:bg-primary group-hover:text-on-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg shadow-sm shadow-primary/5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 overflow-hidden flex flex-col group cursor-pointer border border-outline-variant/20">
+<div class="h-40 bg-surface-container-low relative overflow-hidden">
+<img alt="Bua Loy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A top-down view of colorful, chewy Bua Loy rice balls floating in a creamy white coconut milk bath in a modern matte-white bowl. The lighting is bright and even, highlighting the pastel colors of the dumplings against the white liquid. The surrounding surface is a clean, light grey, maintaining a zen, sanctuary-like vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp3bVV5-Zu3I0d4dY51UphgvZ3E0dcbj03fXtiZqunNznXc-qAepLMMjdbbjAS4S7bOrhmI5Q-Q88JAByeeHPPhHKl3j1OUDm6TS7gcdA9_vgbMncvb39p98FHaBs7p9Spc5ZJCvV8r3FJqNqI2p8Hx6lu3amczkKlFB2L4QWnvI2M8iIOrKfDzfejkX9G8i2OLtOB5mnVcT0_yCc5ZslIobTr4fn6Svr1tZCQtJhG9MsYzD8Y76_R"/>
+</div>
+<div class="p-sm flex flex-col flex-1">
+<h3 class="text-headline-md font-headline-md text-on-surface leading-tight mb-xs line-clamp-1">Bua Loy</h3>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-1 mb-auto">Taro Balls in Coconut</p>
+<div class="flex items-end justify-between mt-sm">
+<span class="text-label-lg font-label-lg text-primary">฿ 60.00</span>
+<button class="bg-surface-container-low text-primary group-hover:bg-primary group-hover:text-on-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg shadow-sm shadow-primary/5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 overflow-hidden flex flex-col group cursor-pointer border border-outline-variant/20">
+<div class="h-40 bg-surface-container-low relative overflow-hidden">
+<img alt="Khanom Chan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean, minimalist composition showing pieces of Khanom Chan (Thai layered dessert) with alternating translucent green and white layers. Placed delicately on a smooth, pale stone surface. High-key lighting emphasizes the organic textures and the pandan green hue, reflecting a modern boutique bakery style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlQVAYHG8jRWugEXMZ3p6nms-S7hqF4-yVlBLrM_1xi7D76GcJmoS6RI_seo3WUG_Nngj4gX59CKwY2IFTK8SF9ewSTNARUoDk6TbUf_rjmvl06i8jPsXDAVc4jIwwm1tRXLEnDk8EYAYP2UpBgebqeF5IqWBV2sIia_JGFBx5Gueh312CZQm4Eha-Y8ME3DcBZ_Yo6iN2roDfp9EtOnm0pB2R2ecSwE6B4MKWIPtcxA7ym940TZUs"/>
+</div>
+<div class="p-sm flex flex-col flex-1">
+<h3 class="text-headline-md font-headline-md text-on-surface leading-tight mb-xs line-clamp-1">Khanom Chan</h3>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-1 mb-auto">Pandan Layer Sweet</p>
+<div class="flex items-end justify-between mt-sm">
+<span class="text-label-lg font-label-lg text-primary">฿ 50.00</span>
+<button class="bg-surface-container-low text-primary group-hover:bg-primary group-hover:text-on-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg shadow-sm shadow-primary/5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 overflow-hidden flex flex-col group cursor-pointer border border-outline-variant/20">
+<div class="h-40 bg-surface-container-low relative overflow-hidden">
+<img alt="Thai Tea" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A tall glass of vibrant orange Thai Iced Tea with a thick layer of creamy milk cascading down the sides. Set against an extremely clean, light-mode background with soft ambient shadows. The image feels refreshing, modern, and perfectly aligned with a premium contemporary cafe aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI4JFyoEYGJWOrEV13gtGfvdKWC10gede3Y_P5ZzqsT43vW46-pILuDqsDTOyZEWuKzZIy6MXLNgB1HN3OjffmY772YnFNa7MvhxB-S8ldYtlRF1l836a6px7_mQcJcijb-X3ERYQh3QC4RjKz_Zz06EmNZZ9CSiHflaqR88fRVJSparbZJ4TaeiE5iVbkeEw889HJ8ueck1pjMdsFPlr5kJ0IJPjymifMyXtYceUfKWIm0N8oAIPf"/>
+</div>
+<div class="p-sm flex flex-col flex-1">
+<h3 class="text-headline-md font-headline-md text-on-surface leading-tight mb-xs line-clamp-1">Signature Thai Tea</h3>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-1 mb-auto">Iced with Cream</p>
+<div class="flex items-end justify-between mt-sm">
+<span class="text-label-lg font-label-lg text-primary">฿ 75.00</span>
+<button class="bg-surface-container-low text-primary group-hover:bg-primary group-hover:text-on-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<aside class="hidden lg:flex w-[400px] bg-surface-container-lowest border-l border-outline-variant/30 flex-col shadow-[-10px_0_30px_rgba(68,105,2,0.03)] z-10">
+<div class="px-container-margin py-md border-b border-outline-variant/30 flex justify-between items-center bg-surface-container-lowest">
+<div>
+<h2 class="text-headline-md font-headline-md text-on-surface">Current Order</h2>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-xs">Order #A-8492</p>
+</div>
+<button class="text-tertiary hover:text-tertiary-container transition-colors w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto px-container-margin py-sm">
+<div class="py-md border-b border-outline-variant/20 flex gap-sm group">
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="text-body-lg font-body-lg text-on-surface font-semibold">Khao Niao Mamuang</h4>
+<span class="text-label-lg font-label-lg text-on-surface ml-sm whitespace-nowrap">฿ 120.00</span>
+</div>
+<p class="text-label-sm font-label-sm text-tertiary mt-1">Extra Coconut Milk</p>
+<div class="flex items-center gap-sm mt-sm">
+<button class="w-8 h-8 rounded-full border border-outline-variant/50 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:border-outline-variant transition-colors">
+<span class="material-symbols-outlined" style="font-size: 16px;">remove</span>
+</button>
+<span class="text-body-md font-body-md text-on-surface w-4 text-center">1</span>
+<button class="w-8 h-8 rounded-full border border-outline-variant/50 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:border-outline-variant transition-colors">
+<span class="material-symbols-outlined" style="font-size: 16px;">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="py-md border-b border-outline-variant/20 flex gap-sm group">
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="text-body-lg font-body-lg text-on-surface font-semibold">Luk Chup</h4>
+<span class="text-label-lg font-label-lg text-on-surface ml-sm whitespace-nowrap">฿ 170.00</span>
+</div>
+<p class="text-label-sm font-label-sm text-tertiary mt-1">Gift Box Presentation</p>
+<div class="flex items-center gap-sm mt-sm">
+<button class="w-8 h-8 rounded-full border border-outline-variant/50 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:border-outline-variant transition-colors">
+<span class="material-symbols-outlined" style="font-size: 16px;">remove</span>
+</button>
+<span class="text-body-md font-body-md text-on-surface w-4 text-center">2</span>
+<button class="w-8 h-8 rounded-full border border-outline-variant/50 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:border-outline-variant transition-colors">
+<span class="material-symbols-outlined" style="font-size: 16px;">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="py-md border-b border-outline-variant/20 flex gap-sm group">
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="text-body-lg font-body-lg text-on-surface font-semibold">Signature Thai Tea</h4>
+<span class="text-label-lg font-label-lg text-on-surface ml-sm whitespace-nowrap">฿ 75.00</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-1 opacity-70">Less Sweet</p>
+<div class="flex items-center gap-sm mt-sm">
+<button class="w-8 h-8 rounded-full border border-outline-variant/50 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:border-outline-variant transition-colors">
+<span class="material-symbols-outlined" style="font-size: 16px;">remove</span>
+</button>
+<span class="text-body-md font-body-md text-on-surface w-4 text-center">1</span>
+<button class="w-8 h-8 rounded-full border border-outline-variant/50 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:border-outline-variant transition-colors">
+<span class="material-symbols-outlined" style="font-size: 16px;">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-container-margin mt-auto border-t border-outline-variant/30 rounded-t-xl">
+<div class="flex justify-between items-center mb-sm">
+<span class="text-body-md font-body-md text-on-surface-variant">Subtotal</span>
+<span class="text-body-md font-body-md text-on-surface">฿ 365.00</span>
+</div>
+<div class="flex justify-between items-center mb-md">
+<span class="text-body-md font-body-md text-on-surface-variant">Tax (7%)</span>
+<span class="text-body-md font-body-md text-on-surface">฿ 25.55</span>
+</div>
+<div class="flex justify-between items-end mb-md pt-sm border-t border-outline-variant/20">
+<span class="text-headline-md font-headline-md text-on-surface">Total</span>
+<span class="text-display-lg font-display-lg text-primary tracking-tight">฿ 390.55</span>
+</div>
+<button class="w-full bg-secondary-container text-on-secondary-container h-16 rounded-xl flex items-center justify-between px-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm transition-all duration-200">
+<span class="text-headline-md font-headline-md font-bold">Pay Now</span>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</button>
+</div>
+</aside>
+</main>
+<script>
+    document.querySelectorAll('button:not(.bg-primary):not(.bg-secondary-container)').forEach(btn => {
+        btn.addEventListener('mousedown', function() {
+            this.classList.add('scale-95');
+        });
+        btn.addEventListener('mouseup', function() {
+            this.classList.remove('scale-95');
+        });
+        btn.addEventListener('mouseleave', function() {
+            this.classList.remove('scale-95');
+        });
+    });
+</script>
+</body></html>

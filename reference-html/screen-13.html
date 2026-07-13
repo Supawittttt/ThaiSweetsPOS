@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - Siam Sweets POS</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#7d5700",
+                    "inverse-surface": "#2e3132",
+                    "primary": "#446902",
+                    "outline-variant": "#c4c9b5",
+                    "outline": "#747968",
+                    "surface-dim": "#d9dadb",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#3b5ca2",
+                    "surface-container-low": "#f3f4f5",
+                    "primary-fixed": "#c3f181",
+                    "on-secondary": "#ffffff",
+                    "background": "#f8f9fa",
+                    "surface-tint": "#446902",
+                    "on-background": "#191c1d",
+                    "tertiary-container": "#82a2ed",
+                    "inverse-primary": "#a8d469",
+                    "surface-container-high": "#e7e8e9",
+                    "on-surface": "#191c1d",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#a8d469",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#284000",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-primary-fixed": "#111f00",
+                    "on-tertiary-fixed-variant": "#1f4488",
+                    "surface": "#f8f9fa",
+                    "secondary-fixed": "#ffdeaa",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e1e3e4",
+                    "on-surface-variant": "#43493a",
+                    "primary-container": "#86b049",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary-fixed": "#001944",
+                    "on-secondary-container": "#6b4b00",
+                    "on-secondary-fixed-variant": "#5f4100",
+                    "secondary-fixed-dim": "#ffba2c",
+                    "tertiary-fixed-dim": "#afc6ff",
+                    "surface-container": "#edeeef",
+                    "surface-bright": "#f8f9fa",
+                    "on-secondary-fixed": "#271900",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#0b367a",
+                    "tertiary-fixed": "#d9e2ff",
+                    "on-primary-fixed-variant": "#324f00",
+                    "secondary-container": "#feb71a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "sm": "12px",
+                    "lg": "40px",
+                    "xl": "64px",
+                    "base": "8px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "container-margin": "24px"
+            },
+            "fontFamily": {
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 40;
+        }
+        /* Custom subtle animated background */
+        .ambient-bg {
+            background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.8) 0%, rgba(248, 249, 250, 1) 60%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex items-center justify-center p-gutter ambient-bg overflow-hidden relative">
+<!-- Decorative subtle background elements -->
+<div class="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-primary-fixed opacity-10 blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[30vw] h-[30vw] rounded-full bg-secondary-fixed opacity-10 blur-3xl pointer-events-none"></div>
+<main class="w-full max-w-5xl flex flex-col items-center z-10">
+<!-- Brand Header -->
+<header class="text-center mb-xl flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-surface-container-lowest shadow-[0_4px_20px_rgba(68,105,2,0.1)] flex items-center justify-center mb-sm border border-surface-variant">
+<span class="material-symbols-outlined text-[32px] text-primary" style="font-variation-settings: 'FILL' 1;">spa</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight mb-xs">
+                Siam Sweets POS
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                Select your workspace to continue
+            </p>
+</header>
+<!-- Selection Canvas -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg w-full max-w-4xl px-container-margin">
+<!-- Storefront Card -->
+<button class="group relative flex flex-col items-center justify-center p-xl bg-surface-container-lowest rounded-[24px] border border-surface-variant/50 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_-10px_rgba(68,105,2,0.15)] hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-background overflow-hidden">
+<!-- Hover effect background -->
+<div class="absolute inset-0 bg-gradient-to-b from-primary-fixed/0 to-primary-fixed/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-24 h-24 rounded-full bg-surface-container-low flex items-center justify-center mb-md group-hover:bg-primary-container group-hover:scale-110 transition-all duration-300 ease-out shadow-sm">
+<span class="material-symbols-outlined text-[48px] text-on-surface-variant group-hover:text-on-primary-container transition-colors duration-300">
+                            storefront
+                        </span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs group-hover:text-primary transition-colors">
+                        Storefront
+                    </h2>
+<span class="font-label-lg text-label-lg text-on-surface-variant/70 group-hover:text-primary/80 transition-colors">
+                        หน้าร้าน
+                    </span>
+</div>
+</button>
+<!-- Admin Backend Card -->
+<button class="group relative flex flex-col items-center justify-center p-xl bg-surface-container-lowest rounded-[24px] border border-surface-variant/50 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_-10px_rgba(68,105,2,0.15)] hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-background overflow-hidden">
+<!-- Hover effect background -->
+<div class="absolute inset-0 bg-gradient-to-b from-primary-fixed/0 to-primary-fixed/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-24 h-24 rounded-full bg-surface-container-low flex items-center justify-center mb-md group-hover:bg-primary-container group-hover:scale-110 transition-all duration-300 ease-out shadow-sm">
+<span class="material-symbols-outlined text-[48px] text-on-surface-variant group-hover:text-on-primary-container transition-colors duration-300">
+                            admin_panel_settings
+                        </span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs group-hover:text-primary transition-colors">
+                        Admin Backend
+                    </h2>
+<span class="font-label-lg text-label-lg text-on-surface-variant/70 group-hover:text-primary/80 transition-colors">
+                        หลังบ้าน
+                    </span>
+</div>
+</button>
+</div>
+<!-- Subtle Footer -->
+<footer class="mt-xl text-center">
+<p class="font-label-sm text-label-sm text-outline">
+                Siam Sweets POS System v2.4.1 © 2024
+            </p>
+</footer>
+</main>
+<script>
+        // Simple tactile feedback simulation
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.transform = 'translateY(2px)';
+                button.style.boxShadow = '0 4px 15px -5px rgba(68,105,2,0.1)';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.transform = 'translateY(-4px)';
+                button.style.boxShadow = '0 20px 40px -10px rgba(68,105,2,0.15)';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = '';
+                button.style.boxShadow = '';
+            });
+        });
+    </script>
+</body></html>
